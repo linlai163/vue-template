@@ -1,10 +1,11 @@
 import style from './index.css';
-import imgSrc from '@/assets/img.png';
 import $ from 'jquery';
+// import imgSrc from '@/assets/img.png';
+
 function comp() {
     const el = document.createElement('div');
     el.innerHTML = '<i>hello, world</i>';
-    console.log(style);
+    // console.log(style);
     return el;
 }
 
