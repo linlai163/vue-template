@@ -3,7 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader/dist/index');
 
 module.exports = {
     entry: './src/index.js',
@@ -18,6 +18,7 @@ module.exports = {
         }
     },
     plugins: [
+        new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: '我是webpack.config配置的标题',
@@ -34,6 +35,10 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                use: ['vue-loader']
+            },
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],

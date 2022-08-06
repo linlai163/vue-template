@@ -1,17 +1,6 @@
-import style from './index.css';
-import $ from 'jquery';
-// import imgSrc from '@/assets/img.png';
+import App from './App.vue'
+import { createApp } from 'vue'
+import store from './store'
+import router from './router'
 
-function comp() {
-    const el = document.createElement('div');
-    el.innerHTML = '<i>hello, world</i>';
-    // console.log(style);
-    return el;
-}
-
-console.log([1,2,3].findIndex(x => x === 4))
-console.log('abc'.padStart(10))
-
-document.body.appendChild(comp());
-
-console.log($);
+createApp(App).use(store).use(router).mount('#app')
